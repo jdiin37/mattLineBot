@@ -26,17 +26,33 @@ console.log("App now running on port", port);
 
 bot.on('message', function(event) {
     if (event.message.type = 'text') {
-      var msg = event.message.text +functionPool.showIAmGroot();
+      var msg = event.message.text ;
 
       
 
-      event.reply(msg).then(function(data) {
+      event.reply(msg + functionPool.showIAmGroot()).then(function(data) {
         // success 
         console.log(msg);
       }).catch(function(error) {
         // error 
         console.log('error');
       });
+
+
+      if (msg.indexOf('Time') != -1) {
+      
+        var rtnMsg = functionPool.checkTime();
+        event.reply(rtnMsg).then(function(data) {
+          // success 
+          console.log(rtnMsg);
+        }).catch(function(error) {
+          // error 
+          console.log('error');
+        });
+      
+      }
+
+
     }
   });
 
