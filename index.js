@@ -27,32 +27,21 @@ console.log("App now running on port", port);
 bot.on('message', function(event) {
     if (event.message.type = 'text') {
       var msg = event.message.text ;
-
+      var replyMsg = '"' + msg + '"?' + functionPool.showIAmGroot(); 
       
+      if (msg.indexOf('Time') != -1) {
+      
+        replyMsg = functionPool.checkTime();
+              
+      }
 
-      event.reply(msg + functionPool.showIAmGroot()).then(function(data) {
+      event.reply(replyMsg).then(function(data) {
         // success 
-        console.log(msg);
+        console.log(replyMsg);
       }).catch(function(error) {
         // error 
         console.log('error');
       });
-
-
-      if (msg.indexOf('Time') != -1) {
-      
-        var rtnMsg = functionPool.checkTime();
-        event.reply(rtnMsg).then(function(data) {
-          // success 
-          console.log(rtnMsg);
-        }).catch(function(error) {
-          // error 
-          console.log('error');
-        });
-      
-      }
-
-
     }
   });
 

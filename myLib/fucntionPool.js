@@ -23,7 +23,7 @@ var functionPool = {
 
     var Msg = "現在時間:";
     Msg +=  yyyy + "/" + mm + "/" + dd;
-    Msg +=  today.getMinutes() +":" + today.getSeconds() ;
+    Msg +=  "  " + today.getMinutes() +":" + today.getSeconds() ;
 
 
     return Msg;
