@@ -20,8 +20,14 @@ var server = app.listen(process.env.PORT || 8080, function() {
 });
 
 
+
+var userId ="";
+
 bot.on('message', function(event) {
     console.log(event); //把收到訊息的 event 印出來看看
+
+    userId = event.source.userId;
+    console.log("userID : " + userId);
 });
   
 bot.on('message', function(event) {
@@ -36,6 +42,7 @@ bot.on('message', function(event) {
 
       if (msg.indexOf('search') != -1){
         replyMsg = functionPool.googleSearch();
+        bot.push(userId,"你要收尋什麼?");
       }
 
       event.reply(replyMsg).then(function(data) {
@@ -45,6 +52,15 @@ bot.on('message', function(event) {
         // error 
         console.log('error');
       });
+
+
+      const asyncRunFail = async () => {
+        let mingRun = await runPromise('小明', 2000, false);
+        let auntieRun = await runPromise('漂亮阿姨', 2500);
+        return `${mingRun}, ${auntieRun}`
+      }
+
+
     }
   });
 
