@@ -25,6 +25,8 @@ console.log("App now running on port", port);
 
 
 bot.on('message', function(event) {
+    console.log(event.message);
+
     if (event.message.type = 'text') {
       var msg = event.message.text ;
       var replyMsg = '"' + msg + '?"' + functionPool.showIAmGroot(); 
