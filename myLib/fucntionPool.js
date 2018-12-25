@@ -22,11 +22,8 @@ var functionPool = {
     } 
 
     var Msg = "現在時間:";
-    Msg += "西元:" + yyyy ;
-    Msg += "月:" + mm ;
-    Msg += "日:" + dd ;
-    Msg += "分:" + today.getMinutes() ;
-    Msg += "秒:" + today.getSeconds() ;
+    Msg +=  yyyy + "/" + mm + "/" + dd;
+    Msg +=  today.getMinutes() +":" + today.getSeconds() ;
 
 
     return Msg;
