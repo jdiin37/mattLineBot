@@ -21,12 +21,12 @@ var functionPool = {
         mm = '0'+mm
     } 
 
-    var Msg = "現在時間: %0D%0A";
-    Msg += "西元:" + yyyy + "%0D%0A";
-    Msg += "月:" + mm + "%0D%0A";
-    Msg += "日:" + dd + "%0D%0A";
-    Msg += "分:" + today.getMinutes() + "%0D%0A";
-    Msg += "秒:" + today.getSeconds() + "%0D%0A";
+    var Msg = "現在時間:";
+    Msg += "西元:" + yyyy ;
+    Msg += "月:" + mm ;
+    Msg += "日:" + dd ;
+    Msg += "分:" + today.getMinutes() ;
+    Msg += "秒:" + today.getSeconds() ;
 
 
     return Msg;
