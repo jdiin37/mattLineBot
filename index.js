@@ -27,7 +27,7 @@ console.log("App now running on port", port);
 bot.on('message', function(event) {
     if (event.message.type = 'text') {
       var msg = event.message.text ;
-      var replyMsg = '"' + msg + '"?' + functionPool.showIAmGroot(); 
+      var replyMsg = '"' + msg + '?"' + functionPool.showIAmGroot(); 
       
       if (msg.indexOf('Time') != -1) {
       
