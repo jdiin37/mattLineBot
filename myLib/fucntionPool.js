@@ -5,7 +5,7 @@ var functionPool = {
     return 'hhh';
   },
   showIAmGroot:function(){
-    return ' , I Am Groot!';
+    return ' I Am Groot!';
   },
   checkTime:function(){
     var today = new Date();
