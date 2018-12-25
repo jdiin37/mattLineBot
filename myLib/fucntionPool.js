@@ -7,6 +7,9 @@ var functionPool = {
   showIAmGroot:function(){
     return ' I Am Groot!';
   },
+  googleSearch:function(){
+    return 'https://www.google.com.tw/search' ;
+  },
   checkTime:function(){
     var today = new Date();
     var dd = today.getDate();

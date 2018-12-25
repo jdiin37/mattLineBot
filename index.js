@@ -29,10 +29,12 @@ bot.on('message', function(event) {
       var msg = event.message.text ;
       var replyMsg = '"' + msg + '?"' + functionPool.showIAmGroot(); 
       
-      if (msg.indexOf('Time') != -1) {
-      
-        replyMsg = functionPool.checkTime();
-              
+      if (msg.indexOf('Time') != -1) {      
+        replyMsg = functionPool.checkTime();              
+      }
+
+      if (msg.indexOf('search') != -1){
+        replyMsg = functionPool.googleSearch();
       }
 
       event.reply(replyMsg).then(function(data) {
