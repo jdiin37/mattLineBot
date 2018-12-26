@@ -27,6 +27,20 @@ var server = app.listen(process.env.PORT || 8080, function() {
 
 var userId ="";
 
+var isOnhour = function (flag){  
+  if(flag){
+    setTimeout(function(){    
+      if(functionPool.isOnhour()){
+        var sendMsg = '整點囉!!';
+        bot.push(userId,sendMsg);
+        console.log('send: '+sendMsg);
+      }
+      isOnhour();
+      
+    },5000);
+  }
+}
+
 bot.on('message', function(event) {
     console.log(event); //把收到訊息的 event 印出來看看
 
@@ -70,19 +84,7 @@ bot.on('message', function(event) {
     }
   });
 
-var isOuhour = function (flag){  
-  if(flag){
-    setTimeout(function(){    
-      if(functionPool.isOnhour()){
-        var sendMsg = '整點囉!!';
-        bot.push(userId,sendMsg);
-        console.log('send: '+sendMsg);
-      }
-      isOnhour();
-      
-    },5000);
-  }
-}
+
 
 
 
