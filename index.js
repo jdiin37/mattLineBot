@@ -27,18 +27,16 @@ var server = app.listen(process.env.PORT || 8080, function() {
 
 var userId ="";
 
-var isOnhour = function (flag){  
-  if(flag){
-    setTimeout(function(){    
+var myTimeOut;
+var isOnhour = function (){  
+  myTimeOut = setTimeout(function(){    
       if(functionPool.isOnhour()){
         var sendMsg = '整點囉!!';
         bot.push(userId,sendMsg);
         console.log('send: '+sendMsg);
       }
-      isOnhour(true);
-      
+      isOnhour();      
     },5000);
-  }
 }
 
 bot.on('message', function(event) {
@@ -65,12 +63,12 @@ bot.on('message', function(event) {
 
       if(msg.indexOf('開始') != -1){
         bot.push(userId,"開始!!");
-        isOnhour(true);
+        isOnhour();
       }
       
       if(msg.indexOf('停止') != -1){
         bot.push(userId,"停止!!");
-        isOnhour(false);
+        clearTimeout(myTimeOut);
       }
 
       event.reply(replyMsg).then(function(data) {
