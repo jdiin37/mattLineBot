@@ -29,6 +29,9 @@ var userId ="";
 
 var myTimeOut;
 var countSum = 0;
+
+var ModType = '';
+
 var isOnhour = function (){  
   myTimeOut = setTimeout(function(){    
       if(functionPool.isOnhour()){
@@ -54,7 +57,7 @@ bot.on('message', function(event) {
       var msg = event.message.text.toLowerCase() ;
       var replyMsg = '"' + msg + '?"' + functionPool.showIAmGroot(); 
       
-      if (msg.indexOf('Time') != -1) {
+      if (msg.indexOf('time') != -1) {
         GotIt = true;
         bot.push(userId,functionPool.checkTime());              
       }
