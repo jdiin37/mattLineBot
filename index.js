@@ -146,6 +146,12 @@ bot.on('message', function(event) {
           bot.push(userId,"停止!!");
           clearTimeout(myTimeOut);
         }
+
+        if (msg.indexOf('roll') != -1) {
+          GotIt = true;
+          bot.push(userId,Math.floor(Math.random() * 99) + 1); 
+        }
+        
       }
 
 
