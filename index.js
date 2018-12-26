@@ -90,7 +90,7 @@ bot.on('message', function(event) {
       var replyMsg = '"' + msg + '?"' + functionPool.showIAmGroot(); 
       
       if(ModType == 'PWD'){
-        if(msg.indexOf('exitPWD') != -1){
+        if(msg.indexOf('exitpwd') != -1){
           GotIt = true;
           ModType = '';
           replyMsg = "已離開終極密碼-------";
@@ -107,7 +107,7 @@ bot.on('message', function(event) {
         }
 
       }else{
-        if (msg.indexOf('playPWD') != -1) {
+        if (msg.indexOf('playpwd') != -1) {
           GotIt = true;
           ModType = 'PWD'              
           bot.push(userId,"開始玩終極密碼!!-------");
