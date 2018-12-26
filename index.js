@@ -35,33 +35,38 @@ var ModType = '';
 var x = Math.floor(Math.random() * 99) + 1;
 var intMax = 100;
 var intMin = 0;
-var leaveCount = 5;
-var PWDGame_startMsg = "終極密碼" + intMin+"~" + intMax+",還可猜" + leaveCount + "次";
+var leaveCount = 8;
+var PWDGame_startMsg = "終極密碼 " + intMin+" 到 " + intMax+" ,還可猜" + leaveCount + "次";
 
 var PWDGame = function(pwd){
   
-  var rtnMsg = '';
+  
+  if(leaveCount < 1){
+    return "我難過";
+  }
+
   if (pwd <= intMin || pwd >= intMax || isNaN(pwd))
   {
-      rtnMsg = "請輸入介於" + intMin + "~" + intMax + "之間的數";      
+    return "請輸入介於" + intMin + "~" + intMax + "之間的數";      
   }
 
   if (pwd > x) {
       intMax = pwd;
       leaveCount-- ;
-      rtnMsg = "終極密碼" + intMin+"~" + intMax+",還可猜" + leaveCount + "次";
+      return "終極密碼" + intMin+"~" + intMax+",還可猜" + leaveCount + "次";
   }
+
   if (pwd < x) {
       intMin = pwd;
       leaveCount-- ;
-      rtnMsg = "終極密碼" + intMin+"~" + intMax+",還可猜" + leaveCount + "次";
+      return "終極密碼" + intMin+"~" + intMax+",還可猜" + leaveCount + "次";
   }
 
   if (pwd == x) {
-      rtnMsg = "恭喜答對了";
+      ModType = '';
+      return "恭喜答對了";
   }
     
-  return rtnMsg;
 }
 
 var isOnhour = function (){  
@@ -95,21 +100,16 @@ bot.on('message', function(event) {
           ModType = '';
           replyMsg = "已離開終極密碼-------";
           bot.push(userId,replyMsg);           
-        }
-
-        if (!isNaN(msg)) {
-          GotIt = true;
-          bot.push(userId,PWDGame(msg));  
         }else{
           GotIt = true;
-          replyMsg = "請輸入數字";
-          bot.push(userId,replyMsg);           
+          bot.push(userId,PWDGame(msg));
         }
 
       }else{
         if (msg.indexOf('playpwd') != -1) {
           GotIt = true;
           ModType = 'PWD'              
+          x = Math.floor(Math.random() * 99) + 1;
           bot.push(userId,"開始玩終極密碼!!-------");
           bot.push(userId,PWDGame_startMsg); 
         }
