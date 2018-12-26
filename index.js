@@ -111,6 +111,7 @@ bot.on('message', function(event) {
           GotIt = true;
           ModType = 'PWD'              
           PWDAim = Math.floor(Math.random() * 99) + 1;
+          leaveCount = 8 ;
           bot.push(userId,PWDGame_startMsg); 
         }
 
