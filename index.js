@@ -149,9 +149,10 @@ bot.on('message', function(event) {
 
         if (msg.indexOf('roll') != -1) {
           GotIt = true;
-          bot.push(userId,Math.floor(Math.random() * 99) + 1); 
+          var rollruselt = Math.floor(Math.random() * 99) + 1;
+          bot.push(userId,rollruselt); 
         }
-        
+
       }
 
 
