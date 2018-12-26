@@ -49,12 +49,12 @@ var PWDGame = function(pwd){
   if (pwd > x) {
       intMax = pwd;
       leaveCount-- ;
-      rtnMsg = PWDGame_startMsg;
+      rtnMsg = "終極密碼" + intMin+"~" + intMax+",還可猜" + leaveCount + "次";
   }
   if (pwd < x) {
       intMin = pwd;
       leaveCount-- ;
-      rtnMsg = PWDGame_startMsg;
+      rtnMsg = "終極密碼" + intMin+"~" + intMax+",還可猜" + leaveCount + "次";
   }
 
   if (pwd == x) {
@@ -73,7 +73,7 @@ var isOnhour = function (){
         console.log('send: '+sendMsg);
       }
       isOnhour();      
-    },5000);
+    },3000);
 }
 
 bot.on('message', function(event) {
