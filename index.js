@@ -51,7 +51,7 @@ bot.on('message', function(event) {
 bot.on('message', function(event) {
     var GotIt = false;
     if (event.message.type = 'text') {
-      var msg = event.message.text ;
+      var msg = event.message.text.toLowerCase() ;
       var replyMsg = '"' + msg + '?"' + functionPool.showIAmGroot(); 
       
       if (msg.indexOf('Time') != -1) {
