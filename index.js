@@ -35,7 +35,7 @@ var isOnhour = function (flag){
         bot.push(userId,sendMsg);
         console.log('send: '+sendMsg);
       }
-      isOnhour();
+      isOnhour(true);
       
     },5000);
   }
