@@ -39,6 +39,7 @@ var leaveCount = 8;
 
 var PWDGame = function(pwd){
   
+  pwd = parseInt(pwd);
   
   if(leaveCount < 1){
     ModType = '';
