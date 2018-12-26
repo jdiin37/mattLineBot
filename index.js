@@ -32,7 +32,7 @@ var countSum = 0;
 
 var ModType = '';
 
-var x = Math.floor(Math.random() * 99) + 1;
+var PWDAim = Math.floor(Math.random() * 99) + 1;
 var intMax = 100;
 var intMin = 0;
 var leaveCount = 8;
@@ -42,6 +42,7 @@ var PWDGame = function(pwd){
   
   
   if(leaveCount < 1){
+    ModType = '';
     return "我難過";
   }
 
@@ -50,19 +51,19 @@ var PWDGame = function(pwd){
     return "請輸入介於" + intMin + "~" + intMax + "之間的數";      
   }
 
-  if (pwd > x) {
+  if (pwd > PWDAim) {
       intMax = pwd;
       leaveCount-- ;
       return "終極密碼" + intMin+"~" + intMax+",還可猜" + leaveCount + "次";
   }
 
-  if (pwd < x) {
+  if (pwd < PWDAim) {
       intMin = pwd;
       leaveCount-- ;
       return "終極密碼" + intMin+"~" + intMax+",還可猜" + leaveCount + "次";
   }
 
-  if (pwd == x) {
+  if (pwd == PWDAim) {
       ModType = '';
       return "恭喜答對了";
   }
@@ -109,8 +110,7 @@ bot.on('message', function(event) {
         if (msg.indexOf('playpwd') != -1) {
           GotIt = true;
           ModType = 'PWD'              
-          x = Math.floor(Math.random() * 99) + 1;
-          bot.push(userId,"開始玩終極密碼!!-------");
+          PWDAim = Math.floor(Math.random() * 99) + 1;
           bot.push(userId,PWDGame_startMsg); 
         }
 
