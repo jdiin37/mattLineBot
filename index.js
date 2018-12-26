@@ -47,7 +47,8 @@ var PWDGame = function(pwd){
 
   if (pwd <= intMin || pwd >= intMax || isNaN(pwd))
   {
-    return "請輸入介於" + intMin + "~" + intMax + "之間的數";      
+
+    return "請輸入介於" + intMin + "~" + intMax + "之間的數" + pwd ;      
   }
 
   if (pwd > PWDAim) {
