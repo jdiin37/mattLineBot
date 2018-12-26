@@ -97,7 +97,7 @@ bot.on('message', function(event) {
           bot.push(userId,replyMsg);           
         }
 
-        if (isNaN(msg)) {
+        if (!isNaN(msg)) {
           GotIt = true;
           bot.push(userId,PWDGame(msg));  
         }else{
