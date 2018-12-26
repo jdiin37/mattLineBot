@@ -110,6 +110,8 @@ bot.on('message', function(event) {
           GotIt = true;
           ModType = 'PWD'              
           PWDAim = Math.floor(Math.random() * 99) + 1;
+          intMax = 100;
+          intMin = 0;
           leaveCount = 8 ;
           bot.push(userId,"終極密碼 " + intMin+" 到 " + intMax+" ,還可猜" + leaveCount + "次"); 
         }
