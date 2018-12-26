@@ -36,7 +36,6 @@ var PWDAim = Math.floor(Math.random() * 99) + 1;
 var intMax = 100;
 var intMin = 0;
 var leaveCount = 8;
-var PWDGame_startMsg = "終極密碼 " + intMin+" 到 " + intMax+" ,還可猜" + leaveCount + "次";
 
 var PWDGame = function(pwd){
   
@@ -112,7 +111,7 @@ bot.on('message', function(event) {
           ModType = 'PWD'              
           PWDAim = Math.floor(Math.random() * 99) + 1;
           leaveCount = 8 ;
-          bot.push(userId,PWDGame_startMsg); 
+          bot.push(userId,"終極密碼 " + intMin+" 到 " + intMax+" ,還可猜" + leaveCount + "次"); 
         }
 
 
