@@ -28,10 +28,12 @@ var server = app.listen(process.env.PORT || 8080, function() {
 var userId ="";
 
 var myTimeOut;
+var countSum = 0;
 var isOnhour = function (){  
   myTimeOut = setTimeout(function(){    
       if(functionPool.isOnhour()){
-        var sendMsg = '整點囉!!';
+        countSum += 1;
+        var sendMsg = '打怪中...!' + countSum;
         bot.push(userId,sendMsg);
         console.log('send: '+sendMsg);
       }
@@ -61,12 +63,12 @@ bot.on('message', function(event) {
         bot.push(userId,"你要搜尋什麼?");
       }
 
-      if(msg.indexOf('開始') != -1){
+      if(msg.indexOf('start count') != -1){
         bot.push(userId,"開始!!");
         isOnhour();
       }
       
-      if(msg.indexOf('停止') != -1){
+      if(msg.indexOf('stop') != -1){
         bot.push(userId,"停止!!");
         clearTimeout(myTimeOut);
       }
