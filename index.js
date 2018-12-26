@@ -33,7 +33,7 @@ var isOnhour = function (){
   myTimeOut = setTimeout(function(){    
       if(functionPool.isOnhour()){
         countSum += 1;
-        var sendMsg = '打怪中...!' + countSum;
+        var sendMsg = countSum + '隻羊..';
         bot.push(userId,sendMsg);
         console.log('send: '+sendMsg);
       }
@@ -49,37 +49,51 @@ bot.on('message', function(event) {
 });
   
 bot.on('message', function(event) {
-
+    var GotIt = false;
     if (event.message.type = 'text') {
       var msg = event.message.text ;
       var replyMsg = '"' + msg + '?"' + functionPool.showIAmGroot(); 
       
-      if (msg.indexOf('Time') != -1) {      
-        replyMsg = functionPool.checkTime();              
+      if (msg.indexOf('Time') != -1) {
+        GotIt = true;
+        bot.push(userId,functionPool.checkTime());              
       }
 
       if (msg.indexOf('search') != -1){
         //replyMsg = functionPool.googleSearch();
+        GotIt = true;
         bot.push(userId,"你要搜尋什麼?");
       }
 
-      if(msg.indexOf('start count') != -1){
+      if(msg.indexOf('start') != -1){
+        GotIt = true;
         bot.push(userId,"開始!!");
         isOnhour();
       }
+
+
+      if(msg.indexOf('reset') != -1){
+        GotIt = true;
+        countSum = 0 ;
+        bot.push(userId,"重新設定完成!!");
+      }
       
       if(msg.indexOf('stop') != -1){
+        GotIt = true;
         bot.push(userId,"停止!!");
         clearTimeout(myTimeOut);
       }
 
-      event.reply(replyMsg).then(function(data) {
-        // success 
-        console.log(replyMsg);
-      }).catch(function(error) {
-        // error 
-        console.log('error');
-      });
+
+      if(!GotIt){
+        event.reply(replyMsg).then(function(data) {
+          // success 
+          console.log(replyMsg);
+        }).catch(function(error) {
+          // error 
+          console.log('error');
+        });
+      }
 
     }
   });
