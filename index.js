@@ -12,6 +12,10 @@ var bot = linebot({
 const app = express();
 const linebotParser = bot.parser();
 app.post('/', linebotParser);
+app.get('/', function(req, res) {
+  res.send('hello ngrok');
+});
+
 
 //因為 express 預設走 port 3000，而 heroku 上預設卻不是，要透過下列程式轉換
 var server = app.listen(process.env.PORT || 8080, function() {
@@ -41,8 +45,9 @@ bot.on('message', function(event) {
       }
 
       if (msg.indexOf('search') != -1){
-        replyMsg = functionPool.googleSearch();
-        bot.push(userId,"你要收尋什麼?");
+        //replyMsg = functionPool.googleSearch();
+        bot.push(userId,"你要搜尋什麼?");
+
       }
 
       event.reply(replyMsg).then(function(data) {
@@ -54,11 +59,6 @@ bot.on('message', function(event) {
       });
 
 
-      const asyncRunFail = async () => {
-        let mingRun = await runPromise('小明', 2000, false);
-        let auntieRun = await runPromise('漂亮阿姨', 2500);
-        return `${mingRun}, ${auntieRun}`
-      }
 
 
     }
