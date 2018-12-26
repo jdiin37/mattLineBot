@@ -40,7 +40,7 @@ var leaveCount = 8;
 var PWDGame = function(pwd){
   
   pwd = parseInt(pwd);
-  
+
   if(leaveCount < 1){
     ModType = '';
     return "我難過";
@@ -49,7 +49,7 @@ var PWDGame = function(pwd){
   if (pwd <= intMin || pwd >= intMax || isNaN(pwd))
   {
 
-    return "請輸入介於" + intMin + "~" + intMax + "之間的數" + pwd ;      
+    return "請輸入介於" + intMin + "~" + intMax + "之間的數" ;      
   }
 
   if (pwd > PWDAim) {
