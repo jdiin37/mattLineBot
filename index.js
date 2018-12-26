@@ -47,7 +47,16 @@ bot.on('message', function(event) {
       if (msg.indexOf('search') != -1){
         //replyMsg = functionPool.googleSearch();
         bot.push(userId,"你要搜尋什麼?");
+      }
 
+      if(msg.indexOf('開始') != -1){
+        bot.push(userId,"開始!!");
+        isOnhour(true);
+      }
+      
+      if(msg.indexOf('停止') != -1){
+        bot.push(userId,"停止!!");
+        isOnhour(false);
       }
 
       event.reply(replyMsg).then(function(data) {
@@ -58,18 +67,23 @@ bot.on('message', function(event) {
         console.log('error');
       });
 
-
-
-
     }
   });
 
+var isOuhour = function (flag){  
+  if(flag){
+    setTimeout(function(){    
+      if(functionPool.isOnhour()){
+        var sendMsg = '整點囉!!';
+        bot.push(userId,sendMsg);
+        console.log('send: '+sendMsg);
+      }
+      isOnhour();
+      
+    },5000);
+  }
+}
 
-//   setTimeout(function(){
-//     var userId = '使用者 ID';
-//     var sendMsg = '要發送的文字';
-//     bot.push(userId,sendMsg);
-//     console.log('send: '+sendMsg);
-// },5000);
+
 
 

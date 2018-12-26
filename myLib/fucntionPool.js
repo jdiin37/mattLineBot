@@ -46,6 +46,17 @@ var functionPool = {
 
 
     return Msg;
+  },
+  isOnhour:function(){
+    var today = new Date();
+
+    var minute = today.getMinutes();
+    
+    if(minute < 61){
+      return true;
+    }
+
+    return false;
   }
   
 
