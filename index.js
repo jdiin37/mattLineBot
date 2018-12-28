@@ -36,7 +36,6 @@ var userId ="";
 
 var myTimeOut;
 var countSum = 0;
-
 var ModType = '';
 
 var PWDAim = Math.floor(Math.random() * 99) + 1;
@@ -51,6 +50,7 @@ function resetAll(){
   intMax = 100;
   intMin = 0;
   leaveCount = 8;
+  countSum = 0;
 }
 
 
@@ -176,7 +176,7 @@ bot.on('message', function(event) {
 
         if (msg.indexOf('dan') != -1) {
           console.log('findDanCnt:' + findDanCnt++);
-          
+
           GotIt = true;
           var rollruselt = Math.floor(Math.random() * 25) + 1;
           var rtnImg =
