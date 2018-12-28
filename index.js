@@ -80,7 +80,7 @@ var isOnhour = function (){
         console.log('send: '+sendMsg);
       }
       isOnhour();      
-    },3000);
+    },2000);
 }
 
 bot.on('message', function(event) {
