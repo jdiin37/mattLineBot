@@ -170,7 +170,7 @@ bot.on('message', function(event) {
             originalContentUrl: __dirname + '/1.jpg',
             previewImageUrl: __dirname + '/1.jpg'
           };
-          var hostname = server.address();
+          var hostname = app.path();
           bot.push(userId,hostname); 
         }
 
