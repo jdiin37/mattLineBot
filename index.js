@@ -1,5 +1,6 @@
 var linebot = require('linebot');
 var express = require('express');
+var fs = require('fs');
 var functionPool = require('./myLib/fucntionPool');
 
 
@@ -158,13 +159,14 @@ bot.on('message', function(event) {
         if (msg.indexOf('dan') != -1) {
           GotIt = true;
           //var rollruselt = Math.floor(Math.random() * 9) + 1 + " !";
-          var img =
+          var img = fs.readFileSync('./img/1.jpg');
+          var rtnImg =
           {
             type: 'image',
-            originalContentUrl: './img/1.jpg',
-            previewImageUrl: './img/1.jpg'
+            originalContentUrl: img,
+            previewImageUrl: img
           };
-          bot.push(userId,img); 
+          bot.push(userId,rtnImg); 
         }
 
       }
