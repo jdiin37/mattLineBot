@@ -165,8 +165,8 @@ bot.on('message', function(event) {
           var rtnImg =
           {
             type: 'image',
-            originalContentUrl: img,
-            previewImageUrl: img
+            originalContentUrl: __dirname + '/1.jpg',
+            previewImageUrl: __dirname + '/1.jpg'
           };
           bot.push(userId,rtnImg); 
         }
