@@ -43,6 +43,16 @@ var PWDAim = Math.floor(Math.random() * 99) + 1;
 var intMax = 100;
 var intMin = 0;
 var leaveCount = 8;
+var findDanCnt = 0;
+
+function resetAll(){
+  ModType = '';
+  PWDAim = Math.floor(Math.random() * 99) + 1;
+  intMax = 100;
+  intMin = 0;
+  leaveCount = 8;
+}
+
 
 var PWDGame = function(pwd){
   
@@ -90,19 +100,29 @@ var isOnhour = function (){
     },2000);
 }
 
-bot.on('message', function(event) {
-    console.log(event); //把收到訊息的 event 印出來看看
+// bot.on('message', function(event) {
+//     console.log(event); //把收到訊息的 event 印出來看看
 
-    userId = event.source.userId;
-    console.log("userID : " + userId);
-});
+//     userId = event.source.userId;
+//     console.log("userID : " + userId);
+// });
   
 bot.on('message', function(event) {
+    console.log(event); //把收到訊息的 event 印出來看看
+    userId = event.source.userId;
+    console.log("userID : " + userId);
+
     var GotIt = false;
     if (event.message.type = 'text') {
       var msg = event.message.text.toLowerCase() ;
       var replyMsg = '"' + msg + '?"' + functionPool.showIAmGroot(); 
       
+      if(msg.indexOf('reset') != -1){
+        GotIt = true;
+        resetAll();
+        bot.push(userId,"重新設定完成!!");
+      }
+
       if(ModType == 'PWD'){
         if(msg.indexOf('exitpwd') != -1){
           GotIt = true;
@@ -125,7 +145,6 @@ bot.on('message', function(event) {
           bot.push(userId,"終極密碼 " + intMin+" 到 " + intMax+" ,還可猜" + leaveCount + "次"); 
         }
 
-
         if (msg.indexOf('time') != -1) {
           GotIt = true;
           bot.push(userId,functionPool.checkTime());              
@@ -143,13 +162,6 @@ bot.on('message', function(event) {
           isOnhour();
         }
   
-  
-        if(msg.indexOf('reset') != -1){
-          GotIt = true;
-          countSum = 0 ;
-          bot.push(userId,"重新設定完成!!");
-        }
-        
         if(msg.indexOf('stop') != -1){
           GotIt = true;
           bot.push(userId,"停止!!");
@@ -163,6 +175,8 @@ bot.on('message', function(event) {
         }
 
         if (msg.indexOf('dan') != -1) {
+          console.log('findDanCnt:' + findDanCnt++);
+          
           GotIt = true;
           var rollruselt = Math.floor(Math.random() * 25) + 1;
           var rtnImg =
@@ -176,7 +190,6 @@ bot.on('message', function(event) {
         }
 
       }
-
 
 
       if(!GotIt){
