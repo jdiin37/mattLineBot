@@ -123,6 +123,22 @@ bot.on('message', function(event) {
         bot.push(userId,"重新設定完成!!");
       }
 
+      if (msg.indexOf('dan') != -1) {
+        console.log('findDanCnt:' + findDanCnt++);
+
+        GotIt = true;
+        var rollruselt = Math.floor(Math.random() * 25) + 1;
+        var rtnImg =
+        {
+          type: 'image',
+          originalContentUrl: url + '/' + rollruselt +'.jpg',
+          previewImageUrl: url + '/' + rollruselt +'.jpg'
+        };
+        
+        bot.push(userId,rtnImg); 
+      }
+
+
       if(ModType == 'PWD'){
         if(msg.indexOf('exitpwd') != -1){
           GotIt = true;
@@ -174,21 +190,7 @@ bot.on('message', function(event) {
           bot.push(userId,rollruselt); 
         }
 
-        if (msg.indexOf('dan') != -1) {
-          console.log('findDanCnt:' + findDanCnt++);
-
-          GotIt = true;
-          var rollruselt = Math.floor(Math.random() * 25) + 1;
-          var rtnImg =
-          {
-            type: 'image',
-            originalContentUrl: url + '/' + rollruselt +'.jpg',
-            previewImageUrl: url + '/' + rollruselt +'.jpg'
-          };
-          
-          bot.push(userId,rtnImg); 
-        }
-
+      
       }
 
 
