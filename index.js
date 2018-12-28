@@ -168,7 +168,7 @@ bot.on('message', function(event) {
             originalContentUrl: __dirname + '/1.jpg',
             previewImageUrl: __dirname + '/1.jpg'
           };
-          bot.push(userId,rtnImg); 
+          bot.push(userId,__dirname); 
         }
 
       }
