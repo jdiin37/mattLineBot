@@ -164,7 +164,7 @@ bot.on('message', function(event) {
 
         if (msg.indexOf('dan') != -1) {
           GotIt = true;
-          var rollruselt = Math.floor(Math.random() * 4) + 1;
+          var rollruselt = Math.floor(Math.random() * 25) + 1;
           var rtnImg =
           {
             type: 'image',
