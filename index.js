@@ -28,7 +28,9 @@ var server = app.listen(process.env.PORT || 8080, function() {
   console.log("App now running on port", port);
 });
 
-
+const production  = 'https://mattlinebot.herokuapp.com/';
+const development = 'http://localhost:8080/';
+const url = (process.env.NODE_ENV ? production : development);
 
 var userId ="";
 
@@ -170,8 +172,8 @@ bot.on('message', function(event) {
             originalContentUrl: __dirname + '/1.jpg',
             previewImageUrl: __dirname + '/1.jpg'
           };
-          var hostname = app.path();
-          bot.push(userId,hostname); 
+          
+          bot.push(userId,url); 
         }
 
       }
