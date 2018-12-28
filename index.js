@@ -155,6 +155,18 @@ bot.on('message', function(event) {
           bot.push(userId,rollruselt); 
         }
 
+        if (msg.indexOf('dan') != -1) {
+          GotIt = true;
+          //var rollruselt = Math.floor(Math.random() * 9) + 1 + " !";
+          var img =
+          {
+            type: 'image',
+            originalContentUrl: 'https://example.com/original.jpg',
+            previewImageUrl: 'https://example.com/preview.jpg'
+          };
+          bot.push(userId,img); 
+        }
+
       }
 
 
