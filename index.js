@@ -161,8 +161,8 @@ bot.on('message', function(event) {
           var img =
           {
             type: 'image',
-            originalContentUrl: 'https://example.com/original.jpg',
-            previewImageUrl: 'https://example.com/preview.jpg'
+            originalContentUrl: './img/1.jpg',
+            previewImageUrl: './img/1.jpg'
           };
           bot.push(userId,img); 
         }
