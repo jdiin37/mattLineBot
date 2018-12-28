@@ -165,15 +165,14 @@ bot.on('message', function(event) {
         if (msg.indexOf('dan') != -1) {
           GotIt = true;
           //var rollruselt = Math.floor(Math.random() * 9) + 1 + " !";
-          var img = fs.readFileSync('./img/1.jpg');
           var rtnImg =
           {
             type: 'image',
-            originalContentUrl: __dirname + '/1.jpg',
-            previewImageUrl: __dirname + '/1.jpg'
+            originalContentUrl: url + '/1.jpg',
+            previewImageUrl: url + '/1.jpg'
           };
           
-          bot.push(userId,url); 
+          bot.push(userId,rtnImg); 
         }
 
       }
