@@ -1,6 +1,10 @@
 var linebot = require('linebot');
 var express = require('express');
 var fs = require('fs');
+
+var os = require("os");
+var hostname = os.hostname();
+
 var functionPool = require('./myLib/fucntionPool');
 
 
@@ -168,7 +172,7 @@ bot.on('message', function(event) {
             originalContentUrl: __dirname + '/1.jpg',
             previewImageUrl: __dirname + '/1.jpg'
           };
-          bot.push(userId,__dirname); 
+          bot.push(userId,hostname); 
         }
 
       }
